@@ -3,9 +3,6 @@ import {
   FormControl,
   FormControlLabel,
   FormHelperText,
-  InputLabel,
-  MenuItem,
-  Select,
   TextField
 } from '@mui/material';
 import { useFormContext } from 'react-hook-form';

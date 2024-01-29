@@ -87,19 +87,20 @@ const OrderRide = () => {
       }
     }
   });
-    const [quantity, setQuantity] = useState<number>(1);
-    const handleIncrement = () => {
-      if (quantity < 12) {
-        setQuantity((prevQuantity) => prevQuantity + 1);
-        setValue('ride.passengerCount', quantity + 1);
-      }
-    };
+  const [quantity, setQuantity] = useState<number>(1);
+  const handleIncrement = () => {
+    if (quantity < 12) {
+      setQuantity((prevQuantity) => prevQuantity + 1);
+      setValue('ride.passengerCount', quantity + 1);
+    }
+  };
 
-    const handleDecrement = () => {
-      if (quantity > 1) {
-        setQuantity((prevQuantity) => prevQuantity - 1);
-        setValue('ride.passengerCount', quantity - 1);
-      }}
+  const handleDecrement = () => {
+    if (quantity > 1) {
+      setQuantity((prevQuantity) => prevQuantity - 1);
+      setValue('ride.passengerCount', quantity - 1);
+    }
+  };
 
   useEffect(() => {
     if (!user) {
@@ -240,25 +241,25 @@ const OrderRide = () => {
         <FormControl>
           <InputLabel htmlFor="passengerCount" />
           <div style={{ display: 'flex', flexDirection: 'row' }}>
-      <IconButton aria-label="decrement" onClick={handleDecrement}>
-        <RemoveCircleOutlineOutlined />
-      </IconButton>
-      <TextField
-        id="passengerCount"
-        variant="outlined"
-        value={quantity}
-        inputProps={{ min: 1, max: 12, inputMode: 'numeric' }}
-        label="מספר נוסעים"
-      />
-              {errors.ride?.passengerCount?.type === 'required' && (
-          <FormHelperText error className="absolute top-full mr-0">
-            יש לבחור מספר נוסעים
-          </FormHelperText>
-        )}
-      <IconButton aria-label="increment" onClick={handleIncrement}>
-        <AddCircleOutlineOutlined />
-      </IconButton>
-    </div>
+            <IconButton aria-label="decrement" onClick={handleDecrement}>
+              <RemoveCircleOutlineOutlined />
+            </IconButton>
+            <TextField
+              id="passengerCount"
+              variant="outlined"
+              value={quantity}
+              inputProps={{ min: 1, max: 12, inputMode: 'numeric' }}
+              label="מספר נוסעים"
+            />
+            {errors.ride?.passengerCount?.type === 'required' && (
+              <FormHelperText error className="absolute top-full mr-0">
+                יש לבחור מספר נוסעים
+              </FormHelperText>
+            )}
+            <IconButton aria-label="increment" onClick={handleIncrement}>
+              <AddCircleOutlineOutlined />
+            </IconButton>
+          </div>
           {errors.ride?.passengerCount?.type === 'required' && (
             <FormHelperText error className="absolute top-full mr-0">
               יש לבחור מספר נוסעים
